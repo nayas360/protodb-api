@@ -15,3 +15,50 @@
 */
 
 syntax = "proto3";
+
+// The main message which makes the database
+message ProtoDB {
+	ProtoDBHeader header = 1;
+}
+
+// The header information accompanied in the ProtoDB database
+message ProtoDBHeader {
+	// the magic header of the ProtoDB database
+	bytes magic = 1;
+	// the version of the ProtoDB database
+	bytes dbversion = 2;
+}
+
+// The message implementing the document metadata
+message ProtoDBDocumentMetadata {
+	// the timestamp of when the document was created in UNIX time format which is a 64bit integer
+	int64 creationTimestamp = 1;
+}
+
+// The message Document which implemnts the atomic document in ProtoDB database
+message ProtoDBDocument {
+	// metadata assosiated with the document
+	ProtoDBDocumentMetadata metadata = 1;
+	// every document has a name
+	string name = 2;
+	// every document has bytes of data
+	bytes data = 3;
+}
+
+// The message implementing the directory metadata
+message ProtoDBDirectoryMetadata {
+	// the timestamp of when the directory was created in UNIX time format which is a 64bit integer
+	int64 creationTimestamp = 1;
+}
+
+// The message implementing the directories which contain other directories or documents
+message ProtoDBDirectory {
+	// metadata associated with the directory
+	ProtoDBDirectoryMetadata metadata = 1;
+	// name of the directory
+	string name = 2;
+	// Directories can have subdirectories inside them
+	repeated ProtoDBDirectory subdirectory = 3;
+	// Directories can also have documents
+	repeated ProtoDBDocument document = 4;
+}
