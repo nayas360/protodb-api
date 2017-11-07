@@ -18,7 +18,10 @@ syntax = "proto3";
 
 // The main message which makes the database
 message ProtoDB {
+	// every ProtoDB database has a header
 	ProtoDBHeader header = 1;
+	// and directories
+	repeated ProtoDBDirectory directory = 2;
 }
 
 // The header information accompanied in the ProtoDB database
