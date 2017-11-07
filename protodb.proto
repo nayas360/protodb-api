@@ -21,7 +21,7 @@ message ProtoDB {
 	// every ProtoDB database has a header
 	ProtoDBHeader header = 1;
 	// and directories
-	repeated ProtoDBDirectory directory = 2;
+	repeated ProtoDBDirectory directories = 2;
 }
 
 // The header information accompanied in the ProtoDB database
