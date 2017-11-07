@@ -1,5 +1,5 @@
 # protodb-api
-The Protobuf definition for the ProtoDB project
+The Protobuf definition for the ProtoDB project.
 
 # Why another NoSQL database
 If you need a local database that avoids the overheads of a server, you use the SQLite Project.
