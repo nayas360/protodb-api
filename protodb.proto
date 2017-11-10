@@ -21,7 +21,7 @@ message ProtoDB {
 	// every ProtoDB database has a header
 	ProtoDBHeader header = 1;
 	// and directories
-	repeated ProtoDBDirectory directories = 2;
+	repeated ProtoDBDirectory directory = 2;
 }
 
 // The header information accompanied in the ProtoDB database
@@ -61,7 +61,7 @@ message ProtoDBDirectory {
 	// name of the directory
 	string name = 2;
 	// Directories can have subdirectories inside them
-	repeated ProtoDBDirectory subdirectory = 3;
+	repeated ProtoDBDirectory directory = 3;
 	// Directories can also have documents
 	repeated ProtoDBDocument document = 4;
 }
